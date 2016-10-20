@@ -9,13 +9,13 @@ import React from 'react';
 
 import styles from './styles.css';
 
-function Conditions({ items }) {
+function Conditions({ conditions }) {
   let content;
 
-  if (items) {
+  if (conditions) {
     content = (
       <ul className={styles.list}>
-        {items.map((item, itemIndex) => (
+        {conditions.map((item, itemIndex) => (
           <li className={styles.item} key={itemIndex}>{item}</li>
         ))}
       </ul>
@@ -30,8 +30,8 @@ function Conditions({ items }) {
 }
 
 Conditions.propTypes = {
-  items: React.PropTypes.oneOfType([
-    React.PropTypes.array,
+  conditions: React.PropTypes.oneOfType([
+    React.PropTypes.object,
     React.PropTypes.bool,
   ]).isRequired,
 };

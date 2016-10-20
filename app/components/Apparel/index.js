@@ -9,13 +9,13 @@ import React from 'react';
 
 import styles from './styles.css';
 
-function Apparel({ items }) {
+function Apparel({ apparel }) {
   let content;
 
-  if (items) {
+  if (apparel) {
     content = (
       <ul className={styles.list}>
-        {items.map((item, itemIndex) => (
+        {apparel.map((item, itemIndex) => (
           <li key={itemIndex}>{item}</li>
         ))}
       </ul>
@@ -30,8 +30,8 @@ function Apparel({ items }) {
 }
 
 Apparel.propTypes = {
-  items: React.PropTypes.oneOfType([
-    React.PropTypes.array,
+  apparel: React.PropTypes.oneOfType([
+    React.PropTypes.object,
     React.PropTypes.bool,
   ]).isRequired,
 };

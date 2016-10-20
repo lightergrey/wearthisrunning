@@ -8,7 +8,7 @@ describe('<SettingsSummary />', () => {
   it('Should display a date', () => {
     const date = '9:00 am Today';
     const renderedComponent = shallow(
-      <SettingsSummary date={date} />
+      <SettingsSummary date={date} onClickButton={() => {}} />
     );
     expect(renderedComponent.contains(date)).toEqual(true);
   });
@@ -16,14 +16,14 @@ describe('<SettingsSummary />', () => {
   it('Should display an address', () => {
     const address = 'Brookyn, NY';
     const renderedComponent = shallow(
-      <SettingsSummary address={address} />
+      <SettingsSummary address={address} onClickButton={() => {}} />
     );
     expect(renderedComponent.contains(address)).toEqual(true);
   });
 
   it('Should render a button', () => {
     const renderedComponent = shallow(
-      <SettingsSummary />
+      <SettingsSummary onClickButton={() => {}} />
     );
     expect(renderedComponent.find('button').length).toEqual(1);
   });
