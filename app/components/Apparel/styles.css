@@ -1,3 +1,7 @@
+.container {
+  padding: 0.5em 1em;
+}
+
 .list {
   font-size: 2em;
   line-height: 1;

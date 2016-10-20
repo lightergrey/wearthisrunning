@@ -23,7 +23,7 @@ function Conditions({ items }) {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       {content}
     </div>
   );
