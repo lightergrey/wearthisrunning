@@ -1,0 +1,17 @@
+.container {
+  border-top: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 0.5em 1em;
+}
+
+.list {
+  font-size: 0.75em;
+  line-height: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: inline-block;
+  margin-right: 1em;
+}

@@ -1,0 +1,17 @@
+.container {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.25);
+  padding: 0.5em 1em;
+}
+
+.summary {
+  font-size: 0.75em;
+}
+
+.button {
+  float: right;
+  height: 1em;
+  margin: 0;
+  opacity: 0.5;
+  padding: 0;
+  width: 1em;
+}

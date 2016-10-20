@@ -10,16 +10,25 @@
  */
 
 import React from 'react';
-import { FormattedMessage } from 'react-intl';
-import messages from './messages';
+
+import styles from './styles.css';
+
+import Apparel from 'components/Apparel';
+import Conditions from 'components/Conditions';
+import SettingsSummary from 'components/SettingsSummary';
 
 export default class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
+    const feel = '';
     return (
-      <h1>
-        <FormattedMessage {...messages.header} />
-      </h1>
+      <div className={`${styles.container} ${styles[feel] || styles.default}`}>
+        <div className={styles.content}>
+          <SettingsSummary address={'Brookyn, NY'} date={'9:00 am Today'} onClickButton={() => { console.log('clicked'); }} />
+          <Apparel items={['Long-Sleeve Shirt', 'Gloves', 'Tights']} />
+          <Conditions items={['32° F', 'Mostly Cloudy', 'Windy']} />
+        </div>
+      </div>
     );
   }
 }
