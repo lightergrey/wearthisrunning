@@ -8,7 +8,7 @@ describe('<Address />', () => {
   it('Should display an address', () => {
     const address = 'Brookyn, NY';
     const renderedComponent = shallow(
-      <Address address={address} onClickButton={() => {}} />
+      <Address address={address} onChangeAddress={() => {}} />
     );
     expect(renderedComponent.find('input').props().value).toEqual(address);
   });
