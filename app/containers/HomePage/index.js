@@ -16,16 +16,17 @@ import { createStructuredSelector } from 'reselect';
 import styles from './styles.css';
 
 import {
-  selectDate,
+  selectTimes,
   selectAddress,
   selectApparel,
   selectConditions,
   selectFeel,
 } from './selectors';
 
+import Address from 'components/Address';
 import Apparel from 'components/Apparel';
 import Conditions from 'components/Conditions';
-import SettingsSummary from 'components/SettingsSummary';
+import Time from 'components/Time';
 
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -33,7 +34,8 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
     return (
       <div className={`${styles.container} ${styles[this.props.feel] || styles.default}`}>
         <div className={styles.content}>
-          <SettingsSummary address={this.props.address} date={this.props.date} onClickButton={this.props.onClickSettingsButton} />
+          <Address address={this.props.address} onChangeAddress={this.props.onClickSettingsButton} />
+          <Time times={this.props.times} onChangeTime={this.props.onClickSettingsButton} />
           <Apparel apparel={this.props.apparel} />
           <Conditions conditions={this.props.conditions} />
         </div>
@@ -43,7 +45,10 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
 }
 
 HomePage.propTypes = {
-  date: React.PropTypes.string,
+  times: React.PropTypes.oneOfType([
+    React.PropTypes.object,
+    React.PropTypes.bool,
+  ]).isRequired,
   address: React.PropTypes.string,
   apparel: React.PropTypes.oneOfType([
     React.PropTypes.object,
@@ -65,7 +70,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 const mapStateToProps = createStructuredSelector({
-  date: selectDate(),
+  times: selectTimes(),
   address: selectAddress(),
   apparel: selectApparel(),
   conditions: selectConditions(),

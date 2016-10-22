@@ -5,7 +5,7 @@
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
-  date: '',
+  times: false,
   address: '',
   apparel: false,
   conditions: false,

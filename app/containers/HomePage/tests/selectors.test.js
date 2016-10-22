@@ -3,7 +3,7 @@ import expect from 'expect';
 
 import {
   selectHome,
-  selectDate,
+  selectTimes,
   selectAddress,
   selectApparel,
   selectConditions,
@@ -21,16 +21,16 @@ describe('selectHome', () => {
   });
 });
 
-describe('selectDate', () => {
-  const isShowingDateSelector = selectDate();
-  it('should select date', () => {
-    const date = 'date';
+describe('selectTimes', () => {
+  const isShowingTimeSelector = selectTimes();
+  it('should select times', () => {
+    const times = 'times';
     const mockedState = fromJS({
       home: {
-        date,
+        times,
       },
     });
-    expect(isShowingDateSelector(mockedState)).toEqual(date);
+    expect(isShowingTimeSelector(mockedState)).toEqual(times);
   });
 });
 

@@ -7,7 +7,7 @@ describe('homeReducer', () => {
 
   beforeEach(() => {
     state = fromJS({
-      date: '',
+      times: false,
       address: '',
       apparel: false,
       conditions: false,
