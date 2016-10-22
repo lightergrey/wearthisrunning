@@ -1,6 +1,6 @@
 /**
 *
-* Times
+* Time
 *
 */
 
@@ -9,10 +9,10 @@ import moment from 'moment';
 
 import styles from './styles.css';
 
-function Times({ times }) {
+function Time({ times, onChangeTime }) {
   return (
-    <div className={styles.Times}>
-      <select id="day">
+    <div className={styles.time}>
+      <select id="day" onChange={onChangeTime}>
         {times.map((time) =>
           <option value={time} key={time}>{moment(time, 'X').calendar()}</option>
         )}
@@ -21,8 +21,9 @@ function Times({ times }) {
   );
 }
 
-Times.propTypes = {
+Time.propTypes = {
   times: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+  onChangeTime: React.PropTypes.func.isRequired,
 };
 
-export default Times;
+export default Time;
