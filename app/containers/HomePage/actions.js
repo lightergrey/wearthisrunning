@@ -5,6 +5,7 @@
 import {
   SET_ADDRESS,
   SET_LATITUDE_LONGITUDE,
+  SET_FORECAST,
 } from './constants';
 
 export function setAddress(address) {
@@ -19,5 +20,12 @@ export function setLatitudeLongitude(latitude, longitude) {
     type: SET_LATITUDE_LONGITUDE,
     latitude,
     longitude,
+  };
+}
+
+export function setForecast(forecast) {
+  return {
+    type: SET_FORECAST,
+    forecast,
   };
 }

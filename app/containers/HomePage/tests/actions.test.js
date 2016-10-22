@@ -3,11 +3,13 @@ import expect from 'expect';
 import {
   SET_ADDRESS,
   SET_LATITUDE_LONGITUDE,
+  SET_FORECAST,
 } from '../constants';
 
 import {
   setAddress,
   setLatitudeLongitude,
+  setForecast,
 } from '../actions';
 
 describe('Home Actions', () => {
@@ -34,6 +36,18 @@ describe('Home Actions', () => {
       };
 
       expect(setLatitudeLongitude(latitude, longitude)).toEqual(expectedResult);
+    });
+  });
+
+  describe('setForecast', () => {
+    it('should return the correct type', () => {
+      const forecast = '';
+      const expectedResult = {
+        type: SET_FORECAST,
+        forecast,
+      };
+
+      expect(setForecast(forecast)).toEqual(expectedResult);
     });
   });
 });
