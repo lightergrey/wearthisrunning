@@ -10,9 +10,13 @@ import React from 'react';
 import styles from './styles.css';
 
 function Address({ address, onChangeAddress }) {
+  function onChange(evt) {
+    onChangeAddress(evt.target.value);
+  }
+
   return (
     <div className={styles.address}>
-      <input onChange={onChangeAddress} value={address} />
+      <input onChange={onChange} value={address} />
     </div>
   );
 }

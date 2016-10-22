@@ -16,17 +16,21 @@ import { createStructuredSelector } from 'reselect';
 import styles from './styles.css';
 
 import {
-  selectTimes,
+  selectFeel,
   selectAddress,
+  selectTimes,
   selectApparel,
   selectConditions,
-  selectFeel,
 } from './selectors';
 
+import {
+  setAddress,
+} from './actions';
+
 import Address from 'components/Address';
+import Time from 'components/Time';
 import Apparel from 'components/Apparel';
 import Conditions from 'components/Conditions';
-import Time from 'components/Time';
 
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
@@ -34,7 +38,7 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
     return (
       <div className={`${styles.container} ${styles[this.props.feel] || styles.default}`}>
         <div className={styles.content}>
-          <Address address={this.props.address} onChangeAddress={this.props.onClickSettingsButton} />
+          <Address address={this.props.address} onChangeAddress={this.props.onChangeAddress} />
           <Time times={this.props.times} onChangeTime={this.props.onClickSettingsButton} />
           <Apparel apparel={this.props.apparel} />
           <Conditions conditions={this.props.conditions} />
@@ -45,11 +49,12 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
 }
 
 HomePage.propTypes = {
+  feel: React.PropTypes.string,
+  address: React.PropTypes.string,
   times: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.bool,
   ]).isRequired,
-  address: React.PropTypes.string,
   apparel: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.bool,
@@ -58,23 +63,24 @@ HomePage.propTypes = {
     React.PropTypes.object,
     React.PropTypes.bool,
   ]).isRequired,
-  feel: React.PropTypes.string,
+  onChangeAddress: React.PropTypes.func,
   onClickSettingsButton: React.PropTypes.func,
 };
 
 function mapDispatchToProps(dispatch) {
   return {
+    onChangeAddress: (address) => dispatch(setAddress(address)),
     onClickSettingsButton: () => console.log('onClickSettingsButton'),
     dispatch,
   };
 }
 
 const mapStateToProps = createStructuredSelector({
+  feel: selectFeel(),
   times: selectTimes(),
   address: selectAddress(),
   apparel: selectApparel(),
   conditions: selectConditions(),
-  feel: selectFeel(),
 });
 
 // Wrap the component to inject dispatch and state into it

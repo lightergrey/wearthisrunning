@@ -1,7 +1,7 @@
 import Address from '../index';
 
 import expect from 'expect';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from 'react';
 
 describe('<Address />', () => {
@@ -15,7 +15,7 @@ describe('<Address />', () => {
 
   it('Should handle a change event', () => {
     const onClickSpy = expect.createSpy();
-    const renderedComponent = shallow(
+    const renderedComponent = mount(
       <Address onChangeAddress={onClickSpy} />
     );
     renderedComponent.find('input').simulate('change');
