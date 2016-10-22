@@ -3,9 +3,12 @@
  */
 
 import { fromJS } from 'immutable';
+import {
+  SET_ADDRESS,
+} from './constants';
 
 const initialState = fromJS({
-  date: '',
+  times: false,
   address: '',
   apparel: false,
   conditions: false,
@@ -14,6 +17,9 @@ const initialState = fromJS({
 
 function homeReducer(state = initialState, action) {
   switch (action.type) {
+    case SET_ADDRESS:
+      return state
+        .set('address', action.address);
     default:
       return state;
   }

@@ -6,9 +6,9 @@ import { createSelector } from 'reselect';
 
 const selectHome = () => (state) => state.get('home');
 
-const selectDate = () => createSelector(
+const selectTimes = () => createSelector(
   selectHome(),
-  (homeState) => homeState.get('date')
+  (homeState) => homeState.get('times')
 );
 
 const selectAddress = () => createSelector(
@@ -33,7 +33,7 @@ const selectFeel = () => createSelector(
 
 export {
   selectHome,
-  selectDate,
+  selectTimes,
   selectAddress,
   selectApparel,
   selectConditions,
