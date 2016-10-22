@@ -10,3 +10,4 @@
  */
 
 export const SET_ADDRESS = 'wearthisrunning/Home/SET_ADDRESS';
+export const SET_LATITUDE_LONGITUDE = 'wearthisrunning/Home/SET_LATITUDE_LONGITUDE';
