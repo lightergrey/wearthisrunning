@@ -16,6 +16,9 @@ const app = express();
 const forecastAPI = require('./middlewares/forecastIo');
 app.use('/forecast-api/:latitude/:longitude/', forecastAPI);
 
+const geocodeAPI = require('./middlewares/geocode');
+app.use('/geocode-api/:address/', geocodeAPI);
+
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),
