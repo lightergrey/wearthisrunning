@@ -8,6 +8,7 @@ import {
   SET_FORECAST,
   SET_CURRENT_CONDITIONS,
   SET_CONDITIONS,
+  SET_RECOMMENDATIONS,
 } from './constants';
 
 export function setAddress(address) {
@@ -43,5 +44,12 @@ export function setConditions(conditions) {
   return {
     type: SET_CONDITIONS,
     conditions,
+  };
+}
+
+export function setRecommendations(recommendations) {
+  return {
+    type: SET_RECOMMENDATIONS,
+    recommendations,
   };
 }

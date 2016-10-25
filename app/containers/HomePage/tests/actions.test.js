@@ -6,6 +6,7 @@ import {
   SET_FORECAST,
   SET_CURRENT_CONDITIONS,
   SET_CONDITIONS,
+  SET_RECOMMENDATIONS,
 } from '../constants';
 
 import {
@@ -14,6 +15,7 @@ import {
   setForecast,
   setCurrentConditions,
   setConditions,
+  setRecommendations,
 } from '../actions';
 
 describe('Home Actions', () => {
@@ -76,6 +78,18 @@ describe('Home Actions', () => {
       };
 
       expect(setConditions(conditions)).toEqual(expectedResult);
+    });
+  });
+
+  describe('setRecommendations', () => {
+    it('should return the correct type', () => {
+      const recommendations = [];
+      const expectedResult = {
+        type: SET_RECOMMENDATIONS,
+        recommendations,
+      };
+
+      expect(setRecommendations(recommendations)).toEqual(expectedResult);
     });
   });
 });
