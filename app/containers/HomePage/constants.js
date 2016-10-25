@@ -13,3 +13,4 @@ export const SET_ADDRESS = 'wearthisrunning/Home/SET_ADDRESS';
 export const SET_LATITUDE_LONGITUDE = 'wearthisrunning/Home/SET_LATITUDE_LONGITUDE';
 export const SET_FORECAST = 'wearthisrunning/Home/SET_FORECAST';
 export const SET_CURRENT_CONDITIONS = 'wearthisrunning/Home/SET_CURRENT_CONDITIONS';
+export const SET_CONDITIONS = 'wearthisrunning/Home/SET_CONDITIONS';

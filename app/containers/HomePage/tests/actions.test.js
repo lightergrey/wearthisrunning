@@ -5,6 +5,7 @@ import {
   SET_LATITUDE_LONGITUDE,
   SET_FORECAST,
   SET_CURRENT_CONDITIONS,
+  SET_CONDITIONS,
 } from '../constants';
 
 import {
@@ -12,6 +13,7 @@ import {
   setLatitudeLongitude,
   setForecast,
   setCurrentConditions,
+  setConditions,
 } from '../actions';
 
 describe('Home Actions', () => {
@@ -62,6 +64,18 @@ describe('Home Actions', () => {
       };
 
       expect(setCurrentConditions(currentConditions)).toEqual(expectedResult);
+    });
+  });
+
+  describe('setConditions', () => {
+    it('should return the correct type', () => {
+      const conditions = [];
+      const expectedResult = {
+        type: SET_CONDITIONS,
+        conditions,
+      };
+
+      expect(setConditions(conditions)).toEqual(expectedResult);
     });
   });
 });
