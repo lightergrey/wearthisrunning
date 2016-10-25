@@ -13,6 +13,12 @@ const app = express();
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
 
+const forecastAPI = require('./middlewares/forecastIo');
+app.use('/forecast-api/:latitude/:longitude/', forecastAPI);
+
+const geocodeAPI = require('./middlewares/geocode');
+app.use('/geocode-api/:address/', geocodeAPI);
+
 // In production we need to pass these values in instead of relying on webpack
 setup(app, {
   outputPath: resolve(process.cwd(), 'build'),
