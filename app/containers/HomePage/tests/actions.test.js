@@ -4,12 +4,14 @@ import {
   SET_ADDRESS,
   SET_LATITUDE_LONGITUDE,
   SET_FORECAST,
+  SET_CURRENT_CONDITIONS,
 } from '../constants';
 
 import {
   setAddress,
   setLatitudeLongitude,
   setForecast,
+  setCurrentConditions,
 } from '../actions';
 
 describe('Home Actions', () => {
@@ -48,6 +50,18 @@ describe('Home Actions', () => {
       };
 
       expect(setForecast(forecast)).toEqual(expectedResult);
+    });
+  });
+
+  describe('setCurrentConditions', () => {
+    it('should return the correct type', () => {
+      const currentConditions = '';
+      const expectedResult = {
+        type: SET_CURRENT_CONDITIONS,
+        currentConditions,
+      };
+
+      expect(setCurrentConditions(currentConditions)).toEqual(expectedResult);
     });
   });
 });

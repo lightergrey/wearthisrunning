@@ -6,6 +6,7 @@ import {
   SET_ADDRESS,
   SET_LATITUDE_LONGITUDE,
   SET_FORECAST,
+  SET_CURRENT_CONDITIONS,
 } from './constants';
 
 export function setAddress(address) {
@@ -27,5 +28,12 @@ export function setForecast(forecast) {
   return {
     type: SET_FORECAST,
     forecast,
+  };
+}
+
+export function setCurrentConditions(currentConditions) {
+  return {
+    type: SET_CURRENT_CONDITIONS,
+    currentConditions,
   };
 }
