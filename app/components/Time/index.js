@@ -28,10 +28,7 @@ function Time({ times, onChangeTime }) {
 }
 
 Time.propTypes = {
-  times: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.bool,
-  ]).isRequired,
+  times: React.PropTypes.array.isRequired,
   onChangeTime: React.PropTypes.func.isRequired,
 };
 
