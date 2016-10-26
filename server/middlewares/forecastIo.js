@@ -12,7 +12,6 @@ function forecastAPI(req, res) {
     .longitude(req.params.longitude)
     .language('en')
     .exclude('minutely,daily,flags')
-    .extendHourly(true)
     .get()
     .then((response) => {
       res.send(response);
