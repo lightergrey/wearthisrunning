@@ -4,11 +4,8 @@
 
 import {
   SET_ADDRESS,
-  SET_LATITUDE_LONGITUDE,
+  SET_HOURLY_FORECASTS,
   SET_FORECAST,
-  SET_CURRENT_CONDITIONS,
-  SET_CONDITIONS,
-  SET_RECOMMENDATIONS,
 } from './constants';
 
 export function setAddress(address) {
@@ -18,11 +15,10 @@ export function setAddress(address) {
   };
 }
 
-export function setLatitudeLongitude(latitude, longitude) {
+export function setHourlyForecasts(hourlyForecasts) {
   return {
-    type: SET_LATITUDE_LONGITUDE,
-    latitude,
-    longitude,
+    type: SET_HOURLY_FORECASTS,
+    hourlyForecasts,
   };
 }
 
@@ -30,26 +26,5 @@ export function setForecast(forecast) {
   return {
     type: SET_FORECAST,
     forecast,
-  };
-}
-
-export function setCurrentConditions(currentConditions) {
-  return {
-    type: SET_CURRENT_CONDITIONS,
-    currentConditions,
-  };
-}
-
-export function setConditions(conditions) {
-  return {
-    type: SET_CONDITIONS,
-    conditions,
-  };
-}
-
-export function setRecommendations(recommendations) {
-  return {
-    type: SET_RECOMMENDATIONS,
-    recommendations,
   };
 }
