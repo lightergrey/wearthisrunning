@@ -11,25 +11,17 @@ import {
 
 import getGeocode from '../../../utils/getGeocode';
 import getForecast from '../../../utils/getForecast';
-import getConditions from '../../../utils/getConditions';
-import getRecommendations from '../../../utils/getRecommendations';
 
 import {
   SET_ADDRESS,
-  SET_CURRENT_CONDITIONS,
 } from '../constants';
 
 import {
-  setLatitudeLongitude,
-  setForecast,
-  setCurrentConditions,
-  setConditions,
-  setRecommendations,
+  setHourlyForecasts,
 } from '../actions';
 
 import {
   setAddressResponder,
-  setCurrentConditionsResponder,
 } from '../sagas';
 
 describe('setAddressResponder', () => {
@@ -52,16 +44,6 @@ describe('setAddressResponder', () => {
     );
   });
 
-  it('should dispatch latitude and longitude', () => {
-    const latitude = 0;
-    const longitude = 0;
-    expect(
-      generator.next({ latitude, longitude }).value
-    ).toEqual(
-      put(setLatitudeLongitude(latitude, longitude))
-    );
-  });
-
   it('should call getForecast', () => {
     const latitude = 0;
     const longitude = 0;
@@ -72,69 +54,20 @@ describe('setAddressResponder', () => {
     );
   });
 
-  it('should dispatch forecast', () => {
-    const forecast = [{ time: '' }];
+  it('should dispatch setHourlyForecasts', () => {
+    const hourlyForecasts = [{ time: '' }];
     expect(
-      generator.next({ forecast }).value
+      generator.next({ hourlyForecasts }).value
     ).toEqual(
-      put(setForecast(forecast))
+      put(setHourlyForecasts(hourlyForecasts))
     );
   });
 
-  it('should dispatch currentConditions', () => {
-    const currentConditions = { time: '' };
-    expect(
-      generator.next({ currentConditions }).value
-    ).toEqual(
-      put(setCurrentConditions(currentConditions))
-    );
-  });
-});
-
-describe('setCurrentConditionsResponder', () => {
-  const generator = setCurrentConditionsResponder();
-
-  it('should take SET_CURRENT_CONDITIONS action', () => {
+  it('should restart', () => {
     expect(
       generator.next().value
     ).toEqual(
-      take(SET_CURRENT_CONDITIONS)
-    );
-  });
-
-  it('should call getConditions', () => {
-    const currentConditions = {};
-    expect(
-      generator.next({ currentConditions }).value
-    ).toEqual(
-      call(getConditions, currentConditions)
-    );
-  });
-
-  it('should dispatch conditions', () => {
-    const conditions = [];
-    expect(
-      generator.next({ conditions }).value
-    ).toEqual(
-      put(setConditions(conditions))
-    );
-  });
-
-  it('should call getRecommendations', () => {
-    const currentConditions = {};
-    expect(
-      generator.next({ currentConditions }).value
-    ).toEqual(
-      call(getRecommendations, currentConditions)
-    );
-  });
-
-  it('should dispatch recommendations', () => {
-    const recommendations = [];
-    expect(
-      generator.next({ recommendations }).value
-    ).toEqual(
-      put(setRecommendations(recommendations))
+      take(SET_ADDRESS)
     );
   });
 });
