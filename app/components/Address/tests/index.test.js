@@ -16,7 +16,7 @@ describe('<Address />', () => {
   it('Should handle a change event', () => {
     const onClickSpy = expect.createSpy();
     const renderedComponent = mount(
-      <Address onChangeAddress={onClickSpy} />
+      <Address address={''} onChangeAddress={onClickSpy} />
     );
     renderedComponent.find('input').simulate('change');
     expect(onClickSpy).toHaveBeenCalled();

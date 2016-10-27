@@ -6,7 +6,7 @@ export default function getForecast(latitude, longitude) {
       if (response.data.err) {
         throw response.data.err;
       }
-      const forecast = response.data;
-      return { forecast };
+      const hourlyForecasts = response.data.hourly.data;
+      return { hourlyForecasts };
     });
 }

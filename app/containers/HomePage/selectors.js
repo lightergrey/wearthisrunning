@@ -6,36 +6,24 @@ import { createSelector } from 'reselect';
 
 const selectHome = () => (state) => state.get('home');
 
-const selectTimes = () => createSelector(
-  selectHome(),
-  (homeState) => homeState.get('times')
-);
-
 const selectAddress = () => createSelector(
   selectHome(),
   (homeState) => homeState.get('address')
 );
 
-const selectApparel = () => createSelector(
+const selectHourlyForecasts = () => createSelector(
   selectHome(),
-  (homeState) => homeState.get('apparel')
+  (homeState) => homeState.get('hourlyForecasts')
 );
 
-const selectConditions = () => createSelector(
+const selectForecast = () => createSelector(
   selectHome(),
-  (homeState) => homeState.get('conditions')
-);
-
-const selectFeel = () => createSelector(
-  selectHome(),
-  (homeState) => homeState.get('feel')
+  (homeState) => homeState.get('forecast')
 );
 
 export {
   selectHome,
-  selectTimes,
   selectAddress,
-  selectApparel,
-  selectConditions,
-  selectFeel,
+  selectHourlyForecasts,
+  selectForecast,
 };

@@ -3,11 +3,9 @@ import expect from 'expect';
 
 import {
   selectHome,
-  selectTimes,
   selectAddress,
-  selectApparel,
-  selectConditions,
-  selectFeel,
+  selectHourlyForecasts,
+  selectForecast,
 } from '../selectors';
 
 describe('selectHome', () => {
@@ -18,19 +16,6 @@ describe('selectHome', () => {
       home: homeState,
     });
     expect(homeSelector(mockedState)).toEqual(homeState);
-  });
-});
-
-describe('selectTimes', () => {
-  const isShowingTimeSelector = selectTimes();
-  it('should select times', () => {
-    const times = 'times';
-    const mockedState = fromJS({
-      home: {
-        times,
-      },
-    });
-    expect(isShowingTimeSelector(mockedState)).toEqual(times);
   });
 });
 
@@ -47,41 +32,28 @@ describe('selectAddress', () => {
   });
 });
 
-describe('selectApparel', () => {
-  const apparelSelector = selectApparel();
-  it('should select apparel', () => {
-    const apparel = false;
+describe('selectHourlyForecasts', () => {
+  const hourlyForecastsSelector = selectHourlyForecasts();
+  it('should select time', () => {
+    const hourlyForecasts = false;
     const mockedState = fromJS({
       home: {
-        apparel,
+        hourlyForecasts,
       },
     });
-    expect(apparelSelector(mockedState)).toEqual(apparel);
+    expect(hourlyForecastsSelector(mockedState)).toEqual(hourlyForecasts);
   });
 });
 
-describe('selectConditions', () => {
-  const conditionsSelector = selectConditions();
+describe('selectForecast', () => {
+  const forecastSelector = selectForecast();
   it('should select time', () => {
-    const conditions = false;
+    const forecast = false;
     const mockedState = fromJS({
       home: {
-        conditions,
+        forecast,
       },
     });
-    expect(conditionsSelector(mockedState)).toEqual(conditions);
-  });
-});
-
-describe('selectFeel', () => {
-  const feelSelector = selectFeel();
-  it('should select time', () => {
-    const feel = '';
-    const mockedState = fromJS({
-      home: {
-        feel,
-      },
-    });
-    expect(feelSelector(mockedState)).toEqual(feel);
+    expect(forecastSelector(mockedState)).toEqual(forecast);
   });
 });

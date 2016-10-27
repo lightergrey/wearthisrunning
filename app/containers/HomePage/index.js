@@ -16,32 +16,62 @@ import { createStructuredSelector } from 'reselect';
 import styles from './styles.css';
 
 import {
-  selectFeel,
   selectAddress,
-  selectTimes,
-  selectApparel,
-  selectConditions,
+  selectHourlyForecasts,
+  selectForecast,
 } from './selectors';
 
 import {
   setAddress,
+  setForecast,
 } from './actions';
 
 import Address from 'components/Address';
-import Time from 'components/Time';
+import HourlyForecasts from 'components/HourlyForecasts';
 import Apparel from 'components/Apparel';
 import Conditions from 'components/Conditions';
+
+import getFeel from '../../utils/getFeel';
+import getApparel from '../../utils/getApparel';
+import getConditions from '../../utils/getConditions';
 
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
+    let hourlyForecastSelector = null;
+    let feel = null;
+    let apparel = null;
+    let conditions = null;
+
+    if (this.props.hourlyForecasts !== false) {
+      hourlyForecastSelector = (
+        <HourlyForecasts
+          hourlyForecasts={this.props.hourlyForecasts} onChangeHourlyForecasts={this.props.onChangeHourlyForecasts}
+        />
+      );
+    }
+
+    if (this.props.forecast !== false) {
+      feel = (
+        getFeel(this.props.forecast)
+      );
+
+      apparel = (
+        <Apparel apparel={getApparel(this.props.forecast)} />
+      );
+
+      conditions = (
+        <Conditions conditions={getConditions(this.props.forecast)} />
+      );
+    }
+
     return (
-      <div className={`${styles.container} ${styles[this.props.feel] || styles.default}`}>
+      <div className={`${styles.container} ${styles[feel] || styles.default}`}>
         <div className={styles.content}>
           <Address address={this.props.address} onChangeAddress={this.props.onChangeAddress} />
-          <Time times={this.props.times} onChangeTime={this.props.onClickSettingsButton} />
-          <Apparel apparel={this.props.apparel} />
-          <Conditions conditions={this.props.conditions} />
+          {hourlyForecastSelector}
+          {apparel}
+          {conditions}
         </div>
       </div>
     );
@@ -49,38 +79,34 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
 }
 
 HomePage.propTypes = {
-  feel: React.PropTypes.string,
-  address: React.PropTypes.string,
-  times: React.PropTypes.oneOfType([
+  address: React.PropTypes.oneOfType([
+    React.PropTypes.string,
+    React.PropTypes.bool,
+  ]),
+  hourlyForecasts: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.bool,
+  ]),
+  forecast: React.PropTypes.oneOfType([
     React.PropTypes.object,
     React.PropTypes.bool,
-  ]).isRequired,
-  apparel: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.bool,
-  ]).isRequired,
-  conditions: React.PropTypes.oneOfType([
-    React.PropTypes.object,
-    React.PropTypes.bool,
-  ]).isRequired,
+  ]),
   onChangeAddress: React.PropTypes.func,
-  onClickSettingsButton: React.PropTypes.func,
+  onChangeHourlyForecasts: React.PropTypes.func,
 };
 
-function mapDispatchToProps(dispatch) {
+export function mapDispatchToProps(dispatch) {
   return {
     onChangeAddress: (address) => dispatch(setAddress(address)),
-    onClickSettingsButton: () => console.log('onClickSettingsButton'),
+    onChangeHourlyForecasts: (forecast) => dispatch(setForecast(forecast)),
     dispatch,
   };
 }
 
 const mapStateToProps = createStructuredSelector({
-  feel: selectFeel(),
-  times: selectTimes(),
   address: selectAddress(),
-  apparel: selectApparel(),
-  conditions: selectConditions(),
+  hourlyForecasts: selectHourlyForecasts(),
+  forecast: selectForecast(),
 });
 
 // Wrap the component to inject dispatch and state into it

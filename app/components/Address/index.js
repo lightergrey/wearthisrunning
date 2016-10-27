@@ -22,7 +22,7 @@ function Address({ address, onChangeAddress }) {
 }
 
 Address.propTypes = {
-  address: React.PropTypes.string,
+  address: React.PropTypes.string.isRequired,
   onChangeAddress: React.PropTypes.func.isRequired,
 };
 

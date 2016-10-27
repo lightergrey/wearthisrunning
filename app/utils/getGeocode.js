@@ -6,9 +6,7 @@ export default function getGeocode(address) {
       if (response.data.err) {
         throw response.data.err;
       }
-      const result = response.data[0];
-      const latitude = result.latitude;
-      const longitude = result.longitude;
+      const { latitude, longitude } = response.data[0];
       return { latitude, longitude };
     });
 }
