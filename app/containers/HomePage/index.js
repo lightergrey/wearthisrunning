@@ -33,7 +33,7 @@ import Conditions from 'components/Conditions';
 
 import getFeel from '../../utils/getFeel';
 import getApparel from '../../utils/getApparel';
-import getConditions from '../../utils/getConditions';
+import { getConditions } from '../../utils/getConditions';
 
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
