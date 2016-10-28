@@ -21,7 +21,7 @@ export default function getApparel({ apparentTemperature, icon, precipProbabilit
     apparel.push('Long-Sleeve Shirt');
   } else if (apparentTemperature < 60) {
     apparel.push('Short-Sleeve Shirt');
-  } else {
+  } else if (apparentTemperature >= 60) {
     apparel.push('Singlet');
   }
 
@@ -31,12 +31,8 @@ export default function getApparel({ apparentTemperature, icon, precipProbabilit
 
   if (apparentTemperature < 35) {
     apparel.push('Tights');
-  } else {
+  } else if (apparentTemperature > 35) {
     apparel.push('Shorts');
-  }
-
-  if (apparel.length === 0) {
-    apparel.push = 'I’m stumped';
   }
 
   return apparel;
