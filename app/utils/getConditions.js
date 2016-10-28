@@ -1,4 +1,4 @@
-function windDescription(windSpeed) {
+export function windDescription(windSpeed) {
   let description;
   switch (true) {
     case (windSpeed < 5):
@@ -22,6 +22,25 @@ function windDescription(windSpeed) {
   return description;
 }
 
-export default function getConditions({ apparentTemperature, summary, windSpeed }) {
-  return [`${Math.round(apparentTemperature)}° F`, `${summary}`, `  ${windDescription(windSpeed)}`];
+export function getConditions({ apparentTemperature, summary, windSpeed }) {
+  const conditions = [];
+
+  if (typeof apparentTemperature !== 'undefined') {
+    conditions.push(`${Math.round(apparentTemperature)}° F`);
+  }
+
+  if (typeof summary !== 'undefined') {
+    conditions.push(summary);
+  }
+
+  if (typeof windSpeed !== 'undefined') {
+    conditions.push(`${windDescription(windSpeed)}`);
+  }
+
+  return conditions;
 }
+
+export default [
+  getConditions,
+  windDescription,
+];
