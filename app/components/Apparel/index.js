@@ -12,7 +12,7 @@ import styles from './styles.css';
 function Apparel({ apparel }) {
   return (
     <div className={styles.container}>
-      <ul className={styles.list}>
+      <ul className={styles.apparel}>
         {apparel.map((item, itemIndex) => (
           <li key={itemIndex}>{item}</li>
         ))}
