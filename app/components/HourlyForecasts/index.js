@@ -15,12 +15,14 @@ function HourlyForecasts({ hourlyForecasts, onChangeHourlyForecasts }) {
     onChangeHourlyForecasts(forecast);
   };
   return (
-    <div className={styles.time}>
-      <select onChange={onChange}>
-        {hourlyForecasts.map((forecast) =>
-          <option value={JSON.stringify(forecast)} key={forecast.time}>{moment(forecast.time, 'X').calendar()}</option>
-        )}
-      </select>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        <select className={styles.select} onChange={onChange}>
+          {hourlyForecasts.map((forecast) =>
+            <option value={JSON.stringify(forecast)} key={forecast.time}>{moment(forecast.time, 'X').calendar()}</option>
+          )}
+        </select>
+      </div>
     </div>
   );
 }

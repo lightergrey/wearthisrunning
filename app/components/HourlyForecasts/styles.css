@@ -1,3 +1,18 @@
-.time {
-  border: 1px solid #FFF;
+.container {
+  padding: 1em 1em 0;
+}
+
+.wrapper {
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0.25em;
+  padding: 0.125em 0;
+}
+
+.select {
+  width: 100%;
+}
+
+.select:focus {
+  border: none;
+  outline: none;
 }
