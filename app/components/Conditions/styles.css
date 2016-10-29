@@ -1,9 +1,8 @@
 .container {
-  border-top: 2px solid rgba(255, 255, 255, 0.25);
-  padding: 0.5em 1em;
+  padding: 1em 1em 0;
 }
 
-.list {
+.conditions {
   font-size: 0.75em;
   line-height: 1;
   list-style: none;

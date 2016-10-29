@@ -70,8 +70,8 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
         <div className={styles.content}>
           <Address address={this.props.address} onChangeAddress={this.props.onChangeAddress} />
           {hourlyForecastSelector}
-          {apparel}
           {conditions}
+          {apparel}
         </div>
       </div>
     );

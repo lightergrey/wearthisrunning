@@ -12,7 +12,7 @@ import styles from './styles.css';
 function Conditions({ conditions }) {
   return (
     <div className={styles.container}>
-      <ul className={styles.list}>
+      <ul className={styles.conditions}>
         {conditions.map((item, itemIndex) => (
           <li className={styles.item} key={itemIndex}>{item}</li>
         ))}
