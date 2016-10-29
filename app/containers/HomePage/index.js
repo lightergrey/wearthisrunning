@@ -12,6 +12,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import Helmet from 'react-helmet';
 
 import styles from './styles.css';
 
@@ -67,6 +68,12 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
 
     return (
       <div className={`${styles.container} ${styles[feel] || styles.default}`}>
+        <Helmet
+          title="Wear This Running"
+          meta={[
+            { name: 'description', content: 'Recommendations for what to wear when and where you run.' },
+          ]}
+        />
         <div className={styles.content}>
           <Address address={this.props.address} onChangeAddress={this.props.onChangeAddress} />
           {hourlyForecastSelector}

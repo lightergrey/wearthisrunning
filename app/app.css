@@ -1,0 +1,12 @@
+html,
+body {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+body > div {
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+}
