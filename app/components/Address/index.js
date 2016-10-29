@@ -15,8 +15,8 @@ function Address({ address, onChangeAddress }) {
   }
 
   return (
-    <div className={styles.address}>
-      <input onChange={onChange} value={address} />
+    <div className={styles.container}>
+      <input className={styles.address} onChange={onChange} value={address} placeholder={'address'} />
     </div>
   );
 }
