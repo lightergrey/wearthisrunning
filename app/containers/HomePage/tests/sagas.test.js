@@ -9,9 +9,6 @@ import {
   take,
 } from 'redux-saga/effects';
 
-import getGeocode from '../../../utils/getGeocode';
-import getForecast from '../../../utils/getForecast';
-
 import {
   SET_ADDRESS,
 } from '../constants';
@@ -19,6 +16,8 @@ import {
 import {
   setHourlyForecasts,
 } from '../actions';
+
+import request from '../../../utils/request';
 
 import {
   setAddressResponder,
@@ -35,29 +34,29 @@ describe('setAddressResponder', () => {
     );
   });
 
-  it('should call getGeocode', () => {
-    const address = '';
+  it('should call request geocode', () => {
+    const address = 'Brooklyn, NY';
     expect(
       generator.next({ address }).value
     ).toEqual(
-      call(getGeocode, address)
+      call(request, `/geocode-api/${address}`)
     );
   });
 
-  it('should call getForecast', () => {
+  it('should call request forecast', () => {
     const latitude = 0;
     const longitude = 0;
     expect(
-      generator.next({ latitude, longitude }).value
+      generator.next({ data: [{ latitude, longitude }] }).value
     ).toEqual(
-      call(getForecast, latitude, longitude)
+      call(request, `/forecast-api/${latitude}/${longitude}`)
     );
   });
 
   it('should dispatch setHourlyForecasts', () => {
     const hourlyForecasts = [{ time: '' }];
     expect(
-      generator.next({ hourlyForecasts }).value
+      generator.next({ data: { hourly: { data: hourlyForecasts } } }).value
     ).toEqual(
       put(setHourlyForecasts(hourlyForecasts))
     );

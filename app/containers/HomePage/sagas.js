@@ -12,14 +12,13 @@ import {
   setHourlyForecasts,
 } from './actions';
 
-import getGeocode from '../../utils/getGeocode';
-import getForecast from '../../utils/getForecast';
+import request from 'utils/request';
 
 export function* setAddressResponder() {
   while (true) { // eslint-disable-line no-constant-condition
     const { address } = yield take(SET_ADDRESS);
-    const { latitude, longitude } = yield call(getGeocode, address);
-    const { hourlyForecasts } = yield call(getForecast, latitude, longitude);
+    const { data: [{ latitude, longitude }] } = yield call(request, `/geocode-api/${address}`);
+    const { data: { hourly: { data: hourlyForecasts } } } = yield call(request, `/forecast-api/${latitude}/${longitude}`);
     yield put(setHourlyForecasts(hourlyForecasts));
   }
 }
