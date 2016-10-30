@@ -10,5 +10,7 @@
  */
 
 export const SET_ADDRESS = 'wearthisrunning/Home/SET_ADDRESS';
-export const SET_HOURLY_FORECASTS = 'wearthisrunning/Home/SET_HOURLY_FORECASTS';
+export const SET_LOCATIONS = 'wearthisrunning/Home/SET_LOCATIONS';
+export const SET_LOCATION = 'wearthisrunning/Home/SET_LOCATION';
+export const SET_FORECASTS = 'wearthisrunning/Home/SET_FORECASTS';
 export const SET_FORECAST = 'wearthisrunning/Home/SET_FORECAST';

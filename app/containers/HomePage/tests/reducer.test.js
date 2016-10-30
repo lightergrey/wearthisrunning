@@ -4,7 +4,9 @@ import { fromJS } from 'immutable';
 
 import {
   setAddress,
-  setHourlyForecasts,
+  setLocations,
+  setLocation,
+  setForecasts,
   setForecast,
 } from '../actions';
 
@@ -14,7 +16,9 @@ describe('homeReducer', () => {
   beforeEach(() => {
     state = fromJS({
       address: '',
-      hourlyForecasts: false,
+      locations: false,
+      coordinates: false,
+      forecasts: false,
       forecast: false,
     });
   });
@@ -41,14 +45,42 @@ describe('homeReducer', () => {
     );
   });
 
-  it('should handle setHourlyForecasts action correctly', () => {
-    const hourlyForecasts = [{ time: '' }];
+  it('should handle setLocations action correctly', () => {
+    const locations = [{ latitude: 0 }];
     const expectedResult = state
-      .set('hourlyForecasts', hourlyForecasts)
-      .set('forecast', hourlyForecasts[0]);
+      .set('locations', locations);
 
     expect(
-      homeReducer(state, setHourlyForecasts(hourlyForecasts))
+      homeReducer(state, setLocations(locations))
+    ).toEqual(
+      expectedResult
+    );
+  });
+
+  it('should handle setLocation action correctly', () => {
+    const formattedAddress = 'formattedAddress';
+    const latitude = 0;
+    const longitude = 0;
+    const expectedResult = state
+    .set('address', formattedAddress)
+    .set('coordinates', { latitude, longitude })
+    .set('locations', false);
+
+    expect(
+      homeReducer(state, setLocation({ formattedAddress, latitude, longitude }))
+    ).toEqual(
+      expectedResult
+    );
+  });
+
+  it('should handle setForecasts action correctly', () => {
+    const forecasts = [{ time: '' }];
+    const expectedResult = state
+      .set('forecasts', forecasts)
+      .set('forecast', forecasts[0]);
+
+    expect(
+      homeReducer(state, setForecasts(forecasts))
     ).toEqual(
       expectedResult
     );

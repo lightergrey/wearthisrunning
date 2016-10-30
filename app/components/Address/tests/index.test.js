@@ -8,7 +8,11 @@ describe('<Address />', () => {
   it('Should display an address', () => {
     const address = 'Brookyn, NY';
     const renderedComponent = shallow(
-      <Address address={address} onChangeAddress={() => {}} />
+      <Address
+        address={address}
+        onChangeAddress={() => {}}
+        onChangeLocation={() => {}}
+      />
     );
     expect(renderedComponent.find('input').props().value).toEqual(address);
   });
@@ -16,7 +20,11 @@ describe('<Address />', () => {
   it('Should handle a change event', () => {
     const onClickSpy = expect.createSpy();
     const renderedComponent = mount(
-      <Address address={''} onChangeAddress={onClickSpy} />
+      <Address
+        address={''}
+        onChangeAddress={onClickSpy}
+        onChangeLocation={() => {}}
+      />
     );
     renderedComponent.find('input').simulate('change');
     expect(onClickSpy).toHaveBeenCalled();

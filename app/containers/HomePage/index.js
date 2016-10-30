@@ -18,17 +18,19 @@ import styles from './styles.css';
 
 import {
   selectAddress,
-  selectHourlyForecasts,
+  selectLocations,
+  selectForecasts,
   selectForecast,
 } from './selectors';
 
 import {
   setAddress,
+  setLocation,
   setForecast,
 } from './actions';
 
 import Address from 'components/Address';
-import HourlyForecasts from 'components/HourlyForecasts';
+import Forecasts from 'components/Forecasts';
 import Apparel from 'components/Apparel';
 import Conditions from 'components/Conditions';
 
@@ -39,15 +41,15 @@ import { getConditions } from '../../utils/getConditions';
 export class HomePage extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
   render() {
-    let hourlyForecastSelector = null;
+    let forecastSelector = null;
     let feel = null;
     let apparel = null;
     let conditions = null;
 
-    if (this.props.hourlyForecasts !== false) {
-      hourlyForecastSelector = (
-        <HourlyForecasts
-          hourlyForecasts={this.props.hourlyForecasts} onChangeHourlyForecasts={this.props.onChangeHourlyForecasts}
+    if (this.props.forecasts !== false) {
+      forecastSelector = (
+        <Forecasts
+          forecasts={this.props.forecasts} onChangeForecasts={this.props.onChangeForecasts}
         />
       );
     }
@@ -75,8 +77,13 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
           ]}
         />
         <div className={styles.content}>
-          <Address address={this.props.address} onChangeAddress={this.props.onChangeAddress} />
-          {hourlyForecastSelector}
+          <Address
+            address={this.props.address}
+            locations={this.props.locations}
+            onChangeAddress={this.props.onChangeAddress}
+            onChangeLocation={this.props.onChangeLocation}
+          />
+          {forecastSelector}
           {conditions}
           {apparel}
         </div>
@@ -90,7 +97,11 @@ HomePage.propTypes = {
     React.PropTypes.string,
     React.PropTypes.bool,
   ]),
-  hourlyForecasts: React.PropTypes.oneOfType([
+  locations: React.PropTypes.oneOfType([
+    React.PropTypes.array,
+    React.PropTypes.bool,
+  ]),
+  forecasts: React.PropTypes.oneOfType([
     React.PropTypes.array,
     React.PropTypes.bool,
   ]),
@@ -99,20 +110,23 @@ HomePage.propTypes = {
     React.PropTypes.bool,
   ]),
   onChangeAddress: React.PropTypes.func,
-  onChangeHourlyForecasts: React.PropTypes.func,
+  onChangeLocation: React.PropTypes.func,
+  onChangeForecasts: React.PropTypes.func,
 };
 
 export function mapDispatchToProps(dispatch) {
   return {
     onChangeAddress: (address) => dispatch(setAddress(address)),
-    onChangeHourlyForecasts: (forecast) => dispatch(setForecast(forecast)),
+    onChangeLocation: (location) => dispatch(setLocation(location)),
+    onChangeForecasts: (forecast) => dispatch(setForecast(forecast)),
     dispatch,
   };
 }
 
 const mapStateToProps = createStructuredSelector({
   address: selectAddress(),
-  hourlyForecasts: selectHourlyForecasts(),
+  locations: selectLocations(),
+  forecasts: selectForecasts(),
   forecast: selectForecast(),
 });
 

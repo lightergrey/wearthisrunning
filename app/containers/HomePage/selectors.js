@@ -11,9 +11,19 @@ const selectAddress = () => createSelector(
   (homeState) => homeState.get('address')
 );
 
-const selectHourlyForecasts = () => createSelector(
+const selectLocations = () => createSelector(
   selectHome(),
-  (homeState) => homeState.get('hourlyForecasts')
+  (homeState) => homeState.get('locations')
+);
+
+const selectCoordinates = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('coordinates')
+);
+
+const selectForecasts = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('forecasts')
 );
 
 const selectForecast = () => createSelector(
@@ -24,6 +34,8 @@ const selectForecast = () => createSelector(
 export {
   selectHome,
   selectAddress,
-  selectHourlyForecasts,
+  selectLocations,
+  selectCoordinates,
+  selectForecasts,
   selectForecast,
 };

@@ -11,16 +11,19 @@ import {
 
 import {
   SET_ADDRESS,
+  SET_LOCATION,
 } from '../constants';
 
 import {
-  setHourlyForecasts,
+  setForecasts,
+  setLocations,
 } from '../actions';
 
 import request from '../../../utils/request';
 
 import {
   setAddressResponder,
+  setLocationResponder,
 } from '../sagas';
 
 describe('setAddressResponder', () => {
@@ -43,22 +46,12 @@ describe('setAddressResponder', () => {
     );
   });
 
-  it('should call request forecast', () => {
-    const latitude = 0;
-    const longitude = 0;
+  it('should dispatch setLocations', () => {
+    const locations = [{ time: '' }];
     expect(
-      generator.next({ data: [{ latitude, longitude }] }).value
+      generator.next({ data: locations }).value
     ).toEqual(
-      call(request, `/forecast-api/${latitude}/${longitude}`)
-    );
-  });
-
-  it('should dispatch setHourlyForecasts', () => {
-    const hourlyForecasts = [{ time: '' }];
-    expect(
-      generator.next({ data: { hourly: { data: hourlyForecasts } } }).value
-    ).toEqual(
-      put(setHourlyForecasts(hourlyForecasts))
+      put(setLocations(locations))
     );
   });
 
@@ -67,6 +60,45 @@ describe('setAddressResponder', () => {
       generator.next().value
     ).toEqual(
       take(SET_ADDRESS)
+    );
+  });
+});
+
+describe('setLocationResponder', () => {
+  const generator = setLocationResponder();
+
+  it('should take SET_LOCATION action', () => {
+    expect(
+      generator.next().value
+    ).toEqual(
+      take(SET_LOCATION)
+    );
+  });
+
+  it('should call request forecast', () => {
+    const latitude = 0;
+    const longitude = 0;
+    expect(
+      generator.next({ coordinates: { latitude, longitude } }).value
+    ).toEqual(
+      call(request, `/forecast-api/${latitude}/${longitude}`)
+    );
+  });
+
+  it('should dispatch setForecasts', () => {
+    const forecasts = [{ time: '' }];
+    expect(
+      generator.next({ data: { hourly: { data: forecasts } } }).value
+    ).toEqual(
+      put(setForecasts(forecasts))
+    );
+  });
+
+  it('should restart', () => {
+    expect(
+      generator.next().value
+    ).toEqual(
+      take(SET_LOCATION)
     );
   });
 });
