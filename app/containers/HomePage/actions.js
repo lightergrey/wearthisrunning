@@ -4,7 +4,9 @@
 
 import {
   SET_ADDRESS,
-  SET_HOURLY_FORECASTS,
+  SET_LOCATIONS,
+  SET_LOCATION,
+  SET_FORECASTS,
   SET_FORECAST,
 } from './constants';
 
@@ -15,10 +17,26 @@ export function setAddress(address) {
   };
 }
 
-export function setHourlyForecasts(hourlyForecasts) {
+export function setLocations(locations) {
   return {
-    type: SET_HOURLY_FORECASTS,
-    hourlyForecasts,
+    type: SET_LOCATIONS,
+    locations,
+  };
+}
+
+export function setLocation({ formattedAddress, latitude, longitude }) {
+  const coordinates = { latitude, longitude };
+  return {
+    type: SET_LOCATION,
+    formattedAddress,
+    coordinates,
+  };
+}
+
+export function setForecasts(forecasts) {
+  return {
+    type: SET_FORECASTS,
+    forecasts,
   };
 }
 

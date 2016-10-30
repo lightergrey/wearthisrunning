@@ -17,13 +17,13 @@ import {
 } from '../actions';
 
 // import Address from 'components/Address';
-// import HourlyForecasts from 'components/HourlyForecasts';
+// import Forecasts from 'components/Forecasts';
 // import Apparel from 'components/Apparel';
 // import Conditions from 'components/Conditions';
 
 // describe('<HomePage />', () => {
-//   it('should render the hourlyForecasts if loading was successful', () => {
-//     const hourlyForecasts = [
+//   it('should render the forecasts if loading was successful', () => {
+//     const forecasts = [
 //       {
 //         time: 0,
 //         apparentTemperature: 0,
@@ -36,17 +36,17 @@ import {
 //     const renderedComponent = mount(
 //       <HomePage
 //         address={''}
-//         hourlyForecasts={hourlyForecasts}
+//         forecasts={forecasts}
 //         forecast={false}
-//         onChangeHourlyForecasts={() => {}}
+//         onChangeForecasts={() => {}}
 //         onChangeAddress={() => {}}
 //       />
 //     );
 //
 //     expect(renderedComponent.contains(
-//       <HourlyForecasts
-//         hourlyForecasts={hourlyForecasts}
-//         onChangeHourlyForecasts={() => {}}
+//       <Forecasts
+//         forecasts={forecasts}
+//         onChangeForecasts={() => {}}
 //       />
 //     )).toEqual(true);
 //   });
@@ -56,7 +56,7 @@ import {
 //       time: 0,
 //       apparentTemperature: 0,
 //     };
-//     const hourlyForecasts = [
+//     const forecasts = [
 //       {
 //         time: 0,
 //         apparentTemperature: 0,
@@ -70,7 +70,7 @@ import {
 //       <HomePage
 //         address={''}
 //         onChangeAddress={() => {}}
-//         hourlyForecasts={hourlyForecasts}
+//         forecasts={forecasts}
 //         forecast={forecast}
 //       />
 //     );
@@ -96,18 +96,18 @@ describe('mapDispatchToProps', () => {
     });
   });
 
-  describe('onChangeHourlyForecasts', () => {
+  describe('onChangeForecasts', () => {
     it('should be injected', () => {
       const dispatch = expect.createSpy();
       const result = mapDispatchToProps(dispatch);
-      expect(result.onChangeHourlyForecasts).toExist();
+      expect(result.onChangeForecasts).toExist();
     });
 
     it('should dispatch setForecast when called', () => {
       const dispatch = expect.createSpy();
       const result = mapDispatchToProps(dispatch);
       const forecast = {};
-      result.onChangeHourlyForecasts(forecast);
+      result.onChangeForecasts(forecast);
       expect(dispatch).toHaveBeenCalledWith(setForecast(forecast));
     });
   });

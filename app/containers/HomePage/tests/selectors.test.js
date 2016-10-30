@@ -4,7 +4,9 @@ import expect from 'expect';
 import {
   selectHome,
   selectAddress,
-  selectHourlyForecasts,
+  selectLocations,
+  selectCoordinates,
+  selectForecasts,
   selectForecast,
 } from '../selectors';
 
@@ -32,16 +34,42 @@ describe('selectAddress', () => {
   });
 });
 
-describe('selectHourlyForecasts', () => {
-  const hourlyForecastsSelector = selectHourlyForecasts();
-  it('should select time', () => {
-    const hourlyForecasts = false;
+describe('selectLocations', () => {
+  const locationsSelector = selectLocations();
+  it('should select locations', () => {
+    const locations = false;
     const mockedState = fromJS({
       home: {
-        hourlyForecasts,
+        locations,
       },
     });
-    expect(hourlyForecastsSelector(mockedState)).toEqual(hourlyForecasts);
+    expect(locationsSelector(mockedState)).toEqual(locations);
+  });
+});
+
+describe('selectCoordinates', () => {
+  const coordinatesSelector = selectCoordinates();
+  it('should select coordinates', () => {
+    const coordinates = false;
+    const mockedState = fromJS({
+      home: {
+        coordinates,
+      },
+    });
+    expect(coordinatesSelector(mockedState)).toEqual(coordinates);
+  });
+});
+
+describe('selectForecasts', () => {
+  const forecastsSelector = selectForecasts();
+  it('should select time', () => {
+    const forecasts = false;
+    const mockedState = fromJS({
+      home: {
+        forecasts,
+      },
+    });
+    expect(forecastsSelector(mockedState)).toEqual(forecasts);
   });
 });
 
