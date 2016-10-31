@@ -30,9 +30,10 @@ import {
 } from './actions';
 
 import Address from 'components/Address';
+import Locations from 'components/Locations';
 import Forecasts from 'components/Forecasts';
-import Apparel from 'components/Apparel';
 import Conditions from 'components/Conditions';
+import Apparel from 'components/Apparel';
 
 import getFeel from '../../utils/getFeel';
 import getApparel from '../../utils/getApparel';
@@ -43,13 +44,22 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
   render() {
     let forecastSelector = null;
     let feel = null;
-    let apparel = null;
+    let locationSelector = null;
     let conditions = null;
+    let apparel = null;
 
     if (this.props.forecasts !== false) {
       forecastSelector = (
         <Forecasts
           forecasts={this.props.forecasts} onChangeForecasts={this.props.onChangeForecasts}
+        />
+      );
+    }
+
+    if (this.props.locations !== false) {
+      locationSelector = (
+        <Locations
+          locations={this.props.locations} onChangeLocation={this.props.onChangeLocation}
         />
       );
     }
@@ -83,6 +93,7 @@ export class HomePage extends React.Component { // eslint-disable-line react/pre
             onChangeAddress={this.props.onChangeAddress}
             onChangeLocation={this.props.onChangeLocation}
           />
+          {locationSelector}
           {forecastSelector}
           {conditions}
           {apparel}
