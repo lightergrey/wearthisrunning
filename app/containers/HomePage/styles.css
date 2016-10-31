@@ -6,15 +6,16 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  border: 1px solid red;
 }
 
 .content {
   color: #FFF;
-  max-width: 40em;
-  min-width: 18em;
+  width: 20em;
   display: flex;
   flex-flow: column nowrap;
   flex-basis: content;
+  border: 1px solid blue;
 }
 
 .default {
