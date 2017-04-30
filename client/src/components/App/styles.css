@@ -1,0 +1,43 @@
+.App {
+  color: #FFF;
+  grid-template-columns: auto 20em auto;
+  grid-template-rows: 1fr;
+  display: grid;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.App .inner {
+  grid-column-start: 2;
+  display: block;
+  max-width: 20em;
+}
+
+.App.default {
+  background-color: #7F8C8D;
+}
+
+.App.hot {
+  background-color: #E74C3C;
+}
+
+.App.warm {
+  background-color: #E67E22;
+}
+
+.App.mild {
+  background-color: #16A085;
+}
+
+.App.chilly {
+  background-color: #3498DB;
+}
+
+.App.cold {
+  background-color: #2980B9;
+}
+
+.App.frigid {
+  background-color: #34495E;
+}
+

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1493597381115" clover="3.2.0">
+  <project timestamp="1493597381115" name="All files">
+    <metrics statements="106" coveredstatements="81" conditionals="61" coveredconditionals="53" methods="30" coveredmethods="17" elements="197" coveredelements="151" complexity="0" loc="106" ncloc="106" packages="8" files="11" classes="11">
+      <package name="src">
+        <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="index.js" path="/Users/jstewart/Development/wearthisrunning/client/src/index.js">
+          <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.AddressInput">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+        <file name="index.js" path="/Users/jstewart/Development/wearthisrunning/client/src/components/AddressInput/index.js">
+          <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="5" count="4" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.App">
+        <metrics statements="17" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="1"/>
+        <file name="index.js" path="/Users/jstewart/Development/wearthisrunning/client/src/components/App/index.js">
+          <metrics statements="17" coveredstatements="5" conditionals="4" coveredconditionals="0" methods="8" coveredmethods="1"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="30" count="0" type="stmt"/>
+          <line num="37" count="0" type="stmt"/>
+          <line num="43" count="0" type="stmt"/>
+          <line num="45" count="0" type="stmt"/>
+          <line num="46" count="0" type="stmt"/>
+          <line num="51" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="52" count="0" type="stmt"/>
+          <line num="54" count="0" type="stmt"/>
+          <line num="62" count="0" type="stmt"/>
+          <line num="64" count="0" type="stmt"/>
+          <line num="70" count="1" type="stmt"/>
+          <line num="71" count="1" type="stmt"/>
+          <line num="72" count="1" type="stmt"/>
+          <line num="73" count="1" type="stmt"/>
+          <line num="75" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.ApparelList">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <file name="index.js" path="/Users/jstewart/Development/wearthisrunning/client/src/components/ApparelList/index.js">
+          <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.ConditionList">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <file name="index.js" path="/Users/jstewart/Development/wearthisrunning/client/src/components/ConditionList/index.js">
+          <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+          <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+          <line num="7" count="1" type="stmt"/>
+          <line num="8" count="3" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.ForecastSelect">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <file name="index.js" path="/Users/jstewart/Development/wearthisrunning/client/src/components/ForecastSelect/index.js">
+          <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+          <line num="7" count="4" type="cond" truecount="4" falsecount="0"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="6" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="21" count="4" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.components.LocationList">
+        <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <file name="index.js" path="/Users/jstewart/Development/wearthisrunning/client/src/components/LocationList/index.js">
+          <metrics statements="6" coveredstatements="6" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+          <line num="7" count="3" type="cond" truecount="4" falsecount="0"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="4" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="15" count="2" type="stmt"/>
+          <line num="18" count="3" type="stmt"/>
+        </file>
+      </package>
+      <package name="src.utils">
+        <metrics statements="66" coveredstatements="54" conditionals="45" coveredconditionals="41" methods="10" coveredmethods="4"/>
+        <file name="Api.js" path="/Users/jstewart/Development/wearthisrunning/client/src/utils/Api.js">
+          <metrics statements="13" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="7" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="17" count="0" type="stmt"/>
+          <line num="22" count="0" type="cond" truecount="0" falsecount="4"/>
+          <line num="23" count="0" type="stmt"/>
+          <line num="25" count="0" type="stmt"/>
+          <line num="26" count="0" type="stmt"/>
+          <line num="27" count="0" type="stmt"/>
+          <line num="28" count="0" type="stmt"/>
+          <line num="29" count="0" type="stmt"/>
+          <line num="33" count="0" type="stmt"/>
+          <line num="36" count="1" type="stmt"/>
+        </file>
+        <file name="getApparel.js" path="/Users/jstewart/Development/wearthisrunning/client/src/utils/getApparel.js">
+          <metrics statements="24" coveredstatements="24" conditionals="22" coveredconditionals="22" methods="1" coveredmethods="1"/>
+          <line num="6" count="13" type="stmt"/>
+          <line num="8" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="10" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="14" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="18" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="19" count="1" type="stmt"/>
+          <line num="20" count="12" type="cond" truecount="2" falsecount="0"/>
+          <line num="21" count="2" type="stmt"/>
+          <line num="24" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="25" count="6" type="stmt"/>
+          <line num="26" count="7" type="cond" truecount="2" falsecount="0"/>
+          <line num="27" count="1" type="stmt"/>
+          <line num="28" count="6" type="cond" truecount="2" falsecount="0"/>
+          <line num="29" count="1" type="stmt"/>
+          <line num="32" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="33" count="5" type="stmt"/>
+          <line num="36" count="13" type="cond" truecount="2" falsecount="0"/>
+          <line num="37" count="3" type="stmt"/>
+          <line num="38" count="10" type="cond" truecount="2" falsecount="0"/>
+          <line num="39" count="5" type="stmt"/>
+          <line num="42" count="13" type="stmt"/>
+        </file>
+        <file name="getConditions.js" path="/Users/jstewart/Development/wearthisrunning/client/src/utils/getConditions.js">
+          <metrics statements="21" coveredstatements="21" conditionals="12" coveredconditionals="12" methods="2" coveredmethods="2"/>
+          <line num="3" count="8" type="cond" truecount="6" falsecount="0"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="9" count="1" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="17" count="1" type="stmt"/>
+          <line num="18" count="1" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+          <line num="22" count="8" type="stmt"/>
+          <line num="30" count="5" type="stmt"/>
+          <line num="32" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="33" count="1" type="stmt"/>
+          <line num="36" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="37" count="1" type="stmt"/>
+          <line num="40" count="5" type="cond" truecount="2" falsecount="0"/>
+          <line num="41" count="1" type="stmt"/>
+          <line num="44" count="5" type="stmt"/>
+        </file>
+        <file name="getFeel.js" path="/Users/jstewart/Development/wearthisrunning/client/src/utils/getFeel.js">
+          <metrics statements="8" coveredstatements="8" conditionals="7" coveredconditionals="7" methods="1" coveredmethods="1"/>
+          <line num="2" count="8" type="cond" truecount="7" falsecount="0"/>
+          <line num="4" count="1" type="stmt"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="8" count="1" type="stmt"/>
+          <line num="10" count="1" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="14" count="1" type="stmt"/>
+          <line num="16" count="2" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>

@@ -1,0 +1,23 @@
+.LocationList > ul {
+  margin: 0;
+  background-color: #FFF;
+  color: #000;
+  border-radius: 0.25em;
+  list-style: none;
+  padding: 0;
+}
+
+.LocationList > li {
+  border-top: 1px solid #7F8C8D;
+}
+
+.LocationList > li:first-of-type {
+  border-top: none;
+}
+
+.LocationList .button {
+  text-align: left;
+  padding: 0.375em 0.5em;
+  width: 100%;
+  font-weight: 200;
+}
