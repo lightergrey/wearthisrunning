@@ -2,7 +2,7 @@ import React from 'react';
 import './styles.css';
 
 function LocationList({locations, onClick}) {
-  var locationList;
+  let locationList;
   let locationListItems;
   if (locations && locations.length > 0) {
     locationListItems = locations.map((location, locationIndex) => (

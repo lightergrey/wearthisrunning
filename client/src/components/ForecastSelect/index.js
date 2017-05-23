@@ -26,12 +26,14 @@ function ForecastSelect({forecasts, onChange}) {
       </option>
     ));
     select = (
-      <select
-        className="select"
-        onChange={evt => onChange(parseInt(evt.target.value, 10))}
-      >
-        {options}
-      </select>
+      <div className="wrapper">
+        <select
+          className="select"
+          onChange={evt => onChange(parseInt(evt.target.value, 10))}
+          >
+            {options}
+        </select>
+      </div>
     );
   }
 
