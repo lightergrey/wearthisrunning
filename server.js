@@ -1,5 +1,6 @@
 const express = require('express');
 const request = require('request');
+const compression = require('compression')
 const isDev = process.env.NODE_ENV !== 'production';
 const dotenv = isDev ? require('dotenv') : false;
 if (dotenv) {
@@ -10,7 +11,7 @@ const app = express();
 
 app.set('port', process.env.PORT || 3001);
 
-app.use(express.compress());
+app.use(express.compression());
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === 'production') {
